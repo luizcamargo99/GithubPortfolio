@@ -21,10 +21,10 @@ public class Repository
     public required DateTime CreatedAt { get; set; }
 
     [JsonProperty("updated_at")]
-    public required DateTime UpdatedAt { get; set; }
+    public required DateTime? UpdatedAt { get; set; }
 
     [JsonProperty("pushed_at")]
-    public required DateTime PushedAt { get; set; }
+    public required DateTime? PushedAt { get; set; }
 
     [JsonProperty("forks")]
     public required int ForkCount { get; set; }
