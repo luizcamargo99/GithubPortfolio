@@ -10,7 +10,8 @@ public class BlogContactItem : IContentStrategy
 
     public string CreateContent(User user)
     {
-        return string.IsNullOrEmpty(user.Blog) ? string.Empty : $"""
+        return string.IsNullOrEmpty(user.Blog) ? string.Empty : 
+            $"""
                 <div class="contact-item" id="{_id}">
                     <a href="{user.Blog}" target="_blank"> {GetTextByString(user.Blog)} </a>
                 </div>

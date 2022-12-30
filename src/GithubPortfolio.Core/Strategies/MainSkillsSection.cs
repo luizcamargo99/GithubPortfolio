@@ -10,7 +10,9 @@ public class MainSkillsSection : IContentStrategy
 
     public string CreateContent(User user)
     {
-        string[] topLanguages = GetTopLanguages(user.Repositories);
+        const int reposToTake = 6;
+
+        string[] topLanguages = GetTopLanguages(user.Repositories, reposToTake);
 
         return $"""
                 <div class="section" id="{_id}" 
@@ -66,7 +68,7 @@ public class MainSkillsSection : IContentStrategy
         return language.Replace("+", "plus").Replace("#", "sharp").Replace(".", "dot");
     }
 
-    private string[] GetTopLanguages(List<Repository> repositories, int take = 6)
+    private string[] GetTopLanguages(List<Repository> repositories, int take)
     {
         var languages = repositories.Select(r => r.Language).Where(x => x is not null).ToList();
         Dictionary<string, int> topLanguages = new();

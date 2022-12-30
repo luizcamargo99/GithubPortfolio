@@ -14,7 +14,8 @@ public class ContactSection : IContentStrategy
     {
         string items = GetContactItems(user);
 
-        return string.IsNullOrEmpty(items) ? string.Empty : $"""
+        return string.IsNullOrEmpty(items) ? string.Empty : 
+            $"""
                 <div class="section" id="{_id}" 
                 style="
                 margin: 0rem 0;

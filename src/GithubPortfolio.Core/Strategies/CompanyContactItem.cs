@@ -10,7 +10,8 @@ public class CompanyContactItem : IContentStrategy
 
     public string CreateContent(User user)
     {
-        return string.IsNullOrEmpty(user.Company) ? string.Empty : $"""
+        return string.IsNullOrEmpty(user.Company) ? string.Empty : 
+            $"""
                 <div class="contact-item" id="{_id}">
                     <span> Working at {user.Company} </span>
                 </div>

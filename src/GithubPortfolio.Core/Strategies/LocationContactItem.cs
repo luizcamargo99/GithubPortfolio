@@ -10,7 +10,8 @@ public class LocationContactItem : IContentStrategy
 
     public string CreateContent(User user)
     {
-        return string.IsNullOrEmpty(user.Location) ? string.Empty : $"""
+        return string.IsNullOrEmpty(user.Location) ? string.Empty : 
+            $"""
                 <div class="contact-item" id="{_id}">
                     <span> I'm living in {user.Location} </span>
                 </div>
