@@ -21,6 +21,7 @@
     #app {
         display: block !important;
     }
+
 </style>
 
 @if (_noInformation)
@@ -44,7 +45,7 @@ else if (_isLoading == false)
     </div>
 
     <PortfolioFooter>
-        <span>@($"© Copyright 2022, {_user.Name}. All Rights Reserved.")</span>
+        <span>@($"© Copyright 2022, {_user?.Name}. All Rights Reserved.")</span>
         <span>Made with <a href="https://github.com/luizcamargo99/GithubPortfolio" target="_blank" style="color: var(--primaryColor)">Github Portfolio</a> </span>
     </PortfolioFooter>
 }

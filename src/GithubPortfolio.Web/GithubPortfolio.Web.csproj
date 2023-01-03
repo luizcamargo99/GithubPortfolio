@@ -10,13 +10,11 @@
   <ItemGroup>
     <None Remove="Components\PortfolioFooter.razor.css" />
     <None Remove="Components\PortfolioHeader.razor.css" />
-    <None Remove="Pages\Portfolio.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Components\PortfolioFooter.razor.css" />
     <Content Include="Components\PortfolioHeader.razor.css" />
-    <Content Include="Pages\Portfolio.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
