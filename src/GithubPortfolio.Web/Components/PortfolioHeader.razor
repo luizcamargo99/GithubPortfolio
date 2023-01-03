@@ -1,38 +1,8 @@
-﻿<header>
-    <h1>@($"</{FormatNameForTitle()}>")</h1>
-    <ul id="header-menu">
-      @*  @foreach (ESection section in Enum.GetValues(typeof(ESection)))
-        {
-            var paramatersUri = navigation.Uri.Replace(navigation.BaseUri, string.Empty);
-
-            <li><a href='@($"/#{section.ToString().ToLower()}")'>@(section.ToDescription().ToUpper())</a></li>
-        }*@
-    </ul>
+﻿<header>   
+    @ChildContent
 </header>
 
 @code {
     [Parameter]
-    public string Name { get; set; } = string.Empty;
-
-    protected override void OnInitialized()
-    {
-        if (string.IsNullOrEmpty(Name))
-        {
-            return;
-        }
-
-        var nameSplitted = Name.Split(" ");
-
-        if (nameSplitted.Length > 2)
-        {
-            var firstNameIndex = 0;
-            var lastNameIndex = nameSplitted.Length - 1;
-            Name = $"{nameSplitted[firstNameIndex]} {nameSplitted[lastNameIndex]}";
-        }
-    }
-
-    private string FormatNameForTitle()
-    {
-        return Name.ToLower().Replace(" ", string.Empty);
-    }
+    public RenderFragment? ChildContent { get; set; }
 }

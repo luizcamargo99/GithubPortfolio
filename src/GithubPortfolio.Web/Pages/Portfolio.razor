@@ -31,7 +31,9 @@ else if (_isLoading == false)
 {
     <PageTitle>@(_user?.Name ?? _user?.Username)</PageTitle>
 
-    <PortfolioHeader Name="@(_user?.Name ?? _user?.Username)" />
+    <PortfolioHeader>
+        <h1>@($"</{FormatNameForTitle(_user is not null ? _user.Name ?? _user.Username : string.Empty)}>")</h1>
+    </PortfolioHeader>
 
     <div class="main">
         @foreach (ESection section in Enum.GetValues(typeof(ESection)))
@@ -41,7 +43,10 @@ else if (_isLoading == false)
         }
     </div>
 
-    <PortfolioFooter Name="@(_user?.Name)" />
+    <PortfolioFooter>
+        <span>@($"© Copyright 2022, {_user.Name}. All Rights Reserved.")</span>
+        <span>Made with <a href="https://github.com/luizcamargo99/GithubPortfolio" target="_blank" style="color: var(--primaryColor)">Github Portfolio</a> </span>
+    </PortfolioFooter>
 }
 
 
@@ -73,7 +78,7 @@ else if (_isLoading == false)
 
     async Task<User> SearchUserAsync()
     {
-        return await githubService.GetUserAsync(Username);        
+        return await githubService.GetUserAsync(Username);
     }
 
     async Task<List<Repository>> SearchUserReposAsync()
@@ -97,5 +102,24 @@ else if (_isLoading == false)
         }
 
         return repos;
+    }
+
+    private string FormatNameForTitle(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+        {
+            return string.Empty;
+        }
+
+        var nameSplitted = name.Split(" ");
+
+        if (nameSplitted.Length > 2)
+        {
+            var firstNameIndex = 0;
+            var lastNameIndex = nameSplitted.Length - 1;
+            name = $"{nameSplitted[firstNameIndex]} {nameSplitted[lastNameIndex]}";
+        }
+
+        return name.ToLower().Replace(" ", string.Empty);
     }
 }
