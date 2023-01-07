@@ -1,0 +1,42 @@
+﻿
+<div class="action">
+    @foreach (var input in Inputs)
+    {
+        <input id="@input.Id" type="text" placeholder='@($"Enter a {input.Name}")' @bind="input.Value" 
+        @bind:event="oninput" class="@HandleWithInputClass(input.IsMandatory, input.Value)" />
+    }
+    <button @onclick="InternalOnClickAsync">Generate</button>
+</div>
+
+<span style="font-size: 1.2rem; color: indianred;">@(_errorStr)</span>
+
+
+@code {
+    [Parameter]
+    public EventCallback<List<InputModel>> OnClick { get; set; }
+
+    [Parameter]
+    public List<InputModel> Inputs { get; set; } = null!;
+
+    string _errorStr = string.Empty;
+
+    private async Task InternalOnClickAsync()
+    {
+        if (Inputs.Any(x => x.IsMandatory && string.IsNullOrEmpty(x.Value)))
+        {
+            _errorStr = "Fill in the mandatory fields";
+            await Task.Delay(2000).ContinueWith((x) =>
+            {
+                _errorStr = string.Empty;
+            });
+            return;
+        }
+
+        await OnClick.InvokeAsync(Inputs);
+    }
+
+    string HandleWithInputClass(bool isMandatory, string value)
+    {
+        return isMandatory && string.IsNullOrEmpty(value) ? "alert-danger" : string.Empty;
+    }
+}

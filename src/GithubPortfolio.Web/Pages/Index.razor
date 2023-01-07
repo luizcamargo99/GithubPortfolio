@@ -1,7 +1,81 @@
 ﻿@page "/"
 
+<style>
+    #app {
+        display: block !important;
+    }
+
+    .main {
+        margin-top: 6rem;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+        flex-direction: column;
+        font-size: 1.5rem;
+        text-align: center;
+        gap: .5rem;
+    }
+
+    .action {
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    button {
+        padding: 0 .5rem;
+    }
+
+    input {
+        padding: 0 .5rem;
+        border: none;
+    }
+
+        input:active, input:focus {
+            outline: none;
+        }
+
+        input::placeholder {
+            font-size: 1.4rem;
+        }
+
+    footer {
+        justify-content: center !important;
+    }
+
+</style>
+
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<PortfolioHeader>
+    <h1>Github Portfolio</h1>
+</PortfolioHeader>
 
+<div class="main">
+    <label>Enter a Github Username to Generate a Portfolio</label>
+    <ActionValidation OnClick="@((args)=> GeneratePortfolio(args))" Inputs="_inputs" />  
+</div>
+
+<PortfolioFooter>
+    <span>Made with 💚 <a href="https://github.com/luizcamargo99/GithubPortfolio" target="_blank" style="color: var(--primaryColor)">Luiz Camargo</a> </span>
+</PortfolioFooter>
+
+@code {
+    string _username { get; set; } = null!;
+    List<InputModel> _inputs = new();
+
+    protected override void OnInitialized()
+    {
+        _inputs.Add(new() { Id = "github_username", IsMandatory = true, Name = "Github Username"});
+    }    
+
+    void GeneratePortfolio(List<InputModel> inputs)
+    {
+        var username = inputs.FirstOrDefault()?.Value;
+        navigation.NavigateTo($"me/{username}");
+    }
+}
 

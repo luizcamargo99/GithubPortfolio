@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GithubPortfolio.Web", "GithubPortfolio.Web\GithubPortfolio.Web.csproj", "{8EB8B0A0-4CED-4675-AB64-1AD39E80E33C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GithubPortfolio.Web", "GithubPortfolio.Web\GithubPortfolio.Web.csproj", "{8EB8B0A0-4CED-4675-AB64-1AD39E80E33C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GithubPortfolio.ApplicationService", "GithubPortfolio.ApplicationService\GithubPortfolio.ApplicationService.csproj", "{3C29D82E-2E3D-429A-B638-68ADDFE66B0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GithubPortfolio.ApplicationService", "GithubPortfolio.ApplicationService\GithubPortfolio.ApplicationService.csproj", "{3C29D82E-2E3D-429A-B638-68ADDFE66B0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GithubPortfolio.Core", "GithubPortfolio.Core\GithubPortfolio.Core.csproj", "{C7DC3861-C371-44DE-B507-604AF1536A84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GithubPortfolio.Core", "GithubPortfolio.Core\GithubPortfolio.Core.csproj", "{C7DC3861-C371-44DE-B507-604AF1536A84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

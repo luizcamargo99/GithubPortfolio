@@ -107,6 +107,8 @@ else if (_isLoading == false)
 
     private string FormatNameForTitle(string name)
     {
+        const int maxLengthNames = 2;
+
         if (string.IsNullOrEmpty(name))
         {
             return string.Empty;
@@ -114,7 +116,7 @@ else if (_isLoading == false)
 
         var nameSplitted = name.Split(" ");
 
-        if (nameSplitted.Length > 2)
+        if (nameSplitted.Length > maxLengthNames)
         {
             var firstNameIndex = 0;
             var lastNameIndex = nameSplitted.Length - 1;
